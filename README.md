@@ -10,4 +10,5 @@ https://covid19.apple.com/mobility
 
 ### Change Log
 * 2021-02-22: A new version of the data file was downloaded. I also refactored the code to be more general and allow any state to be subset from the larger file.
+  * Initialized a git repository in this project.
 * 2021-02-06: Data file downloaded for analysis.

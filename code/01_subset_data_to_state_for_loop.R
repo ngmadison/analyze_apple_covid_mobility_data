@@ -5,16 +5,16 @@
 
 # Madison Ng
 # mtng2@dons.usfca.edu
-# February 22, 2021
+# February 25, 2021
 
 # load functions
 source("code/functions/subset_mobility_data_to_state.R")
 
 # vector to pick any state to subset
-pick_any_state_vector <- c("Maine",
+pick_any_state_vector <- c("Hawaii",
                            "Virginia",
                            "Wisconsin",
-                           "Hawaii",
+                           "Maine",
                            "Arizona")
 
 # use of function via for loop
@@ -23,11 +23,12 @@ for (state_to_subset in pick_any_state_vector) {
   x <- state_to_subset
 
   print(paste("The state you chose is", state_to_subset))
+
   state_to_subset <- subset_mobility_data_to_state(
     input_file_name = "data/raw_data/applemobilitytrends-2021-02-22.csv",
     state_to_subset = x)
 
-  print(paste("Subsetting data for", x))
-  print("State data now subsetted.")
+  print(paste(x, "data is subsetting"))
+  print(paste(x, "data now subsetted."))
   print("--------")
 }

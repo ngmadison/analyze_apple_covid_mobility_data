@@ -38,7 +38,7 @@ city_county_transport_tally <- function(input_file_name,
   # write new csv of tally results and save to output directory
   write.csv(count_cities_counties_by_type,
             file = paste0("output/",
-                          "tally_outputs/",
+                          "tally_states/",
                           "city_county_transport_tally",
                           "_",
                           state_to_tally,

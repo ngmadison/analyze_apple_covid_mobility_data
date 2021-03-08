@@ -39,8 +39,8 @@ city_county_transport_tally <- function(input_file_name,
   write.csv(count_cities_counties_by_type,
             file = paste0("output/",
                           "tally_states/",
-                          "city_county_transport_tally",
+                          tools::file_path_sans_ext(basename(input_file_name)),
                           "_",
-                          state_to_tally,
+                          "transport_tally",
                           ".csv"))
 }

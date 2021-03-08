@@ -22,11 +22,11 @@ for (state_to_tally in tally_chosen_state) {
 
   print(paste("Tally transportation data for", state_to_tally))
 
-  # change "subset_outputs/" directory to "subsets_for_defensive_tests/"
+  # change "subset_states_wide/" directory to "subsets_for_defensive_tests/"
   # directory to test defenses
   tally_chosen_state <- city_county_transport_tally(
   input_file_name = paste0("output/",
-                           "subset_outputs/",
+                           "subset_states_wide/",
                            "applemobilitytrends-2021-02-22_",
                           state_to_tally,
                           ".csv"),

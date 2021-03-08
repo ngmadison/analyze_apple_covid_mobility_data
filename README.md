@@ -11,7 +11,8 @@ https://covid19.apple.com/mobility
 Currently uses dplyr to work with some of the tabular data. Eventually will also use ggplot2 to visualize data set.
 
 ### Change Log
-* 2021-03-03: Created 03 script to convert subsetted data to long form.
+* 2021-03-07: Modified functions to reflect updated output directory names that more accuratley reflect content.
+* 2021-03-03: Created function to convert subsetted data to long form.
 * 2021-02-27: Reorganized files in output directory and updated functions to reflect new output locations.
 * 2021-02-26: Archived original 02 script. Added for loop to new version of 02 script.
 * 2021-02-26: Added defensive code to city_county_transport_tally function.

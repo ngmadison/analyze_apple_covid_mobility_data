@@ -14,7 +14,7 @@ library("dplyr")
 city_county_transport_tally <- function(input_file_name,
                                         state_to_tally) {
   # read in subsetted csv
-  state_data <- read.csv(input_file_name)
+  state_data <- readr::read_csv(input_file_name)
 
   # defensive code to ensure data present before generating count table
   if (nrow(state_data) == 0) {
@@ -36,7 +36,7 @@ city_county_transport_tally <- function(input_file_name,
   }
 
   # write new csv of tally results and save to output directory
-  write.csv(count_cities_counties_by_type,
+  readr::write_csv(count_cities_counties_by_type,
             file = paste0("output/",
                           "tally_states/",
                           tools::file_path_sans_ext(basename(input_file_name)),

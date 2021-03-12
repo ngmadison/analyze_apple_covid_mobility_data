@@ -8,12 +8,16 @@
 # create function to convert mobility data from wide to long form
 convert_wide_to_long <- function(input_wide_data) {
 
-  # load in packages
-  library("tidyr")
-  library("readr")
-
   # read in the csv
-  state_wide_data <- readr::read_csv(input_wide_data)
+  state_wide_data <- readr::read_csv(input_wide_data,
+                                     col_types =
+                                       cols(alternative_name = col_character()
+                                     ))
+
+  state_wide_data$alternative_name = as.character(state_wide_data$alternative_name)
+
+  # remove unnamed first column
+  state_wide_data[[1]] <- NULL
 
   # convert to long format data table, fix data display
   fixed_wide_data <- state_wide_data %>%
@@ -21,11 +25,11 @@ convert_wide_to_long <- function(input_wide_data) {
       cols = starts_with("X202"),
       names_to = "date",
       names_prefix = "X",
-      values_to = "frequency"
+      values_to = "relative_mobility"
     )
 
-  # trying to fix date data style
-  # chartr(".", "-", fixed_wide_data$date)
+  # fix date data style
+  fixed_wide_data$date <- gsub("\\.", "-", fixed_wide_data$date)
 
   # write new csv of long format data
   readr::write_csv(fixed_wide_data,

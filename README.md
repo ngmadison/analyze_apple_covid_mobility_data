@@ -13,6 +13,7 @@ Currently uses dplyr to work with some of the tabular data. Eventually will also
 ### Change Log
 * 2021-03-12: Continue function and associated script dplyr and/or readr modifications. Object naming and state name style for file naming updated.
 * 2021-03-11: Converted all three functions to use dplyr and/or readr as needed.
+* 2021-03-08: Create 03 script to test long form data conversion function. Output saved in output/tally_states directory.
 * 2021-03-07: Created R markdown file of analysis.
 * 2021-03-07: Modified functions and associated scripts to reflect updated output directory names that more accurately reflect content.
 * 2021-03-03: Created function to convert subsetted data to long form.

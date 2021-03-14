@@ -8,7 +8,7 @@ The goal of this project is to analyze mobility data made available by Apple.
 Data obtained from the following URL:
 https://covid19.apple.com/mobility
 
-Currently uses dplyr to work with some of the tabular data. Eventually will also use ggplot2 to visualize data set.
+Currently uses dplyr to work with some of the tabular data and ggplot2 to visualize data set.
 
 ### Change Log
 * 2021-03-13: Resolved plotting errors in in analysis.Rmd and generated test figures.

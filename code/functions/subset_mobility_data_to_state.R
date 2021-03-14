@@ -6,6 +6,9 @@
 # mtng2@dons.usfca.edu
 # March 11, 2021
 
+# load package
+library("dplyr")
+
 # create a function to subset any US state out of the full dataset
 # this should also create an output CSV named based on the state subsetted
 subset_mobility_data_to_state <- function(input_file_name,
@@ -15,11 +18,11 @@ subset_mobility_data_to_state <- function(input_file_name,
 
   # subset dataset to only include rows where sub.region column has
   # that state name in it, but include all other columns.
-  state_data <- full_covid_data %>%
+  state_subset <- full_covid_data %>%
     dplyr::filter(`sub-region` == state_to_subset)
 
   # check subsetted data actually has data present
-  if (nrow(state_data) == 0) {
+  if (nrow(state_subset) == 0) {
     stop("ERROR: No rows matching given state name. Possible typo.")
   }
 
@@ -29,11 +32,12 @@ subset_mobility_data_to_state <- function(input_file_name,
                           replacement = "_")
 
   # save US state data to new csv file in output directory
-  readr::write_csv(state_data, file = paste0("output/",
+  readr::write_csv(state_subset, file = paste0("output/",
                                       "subset_states_wide/",
                                      tools::file_path_sans_ext(
                                        basename(input_file_name)),
                                       "_",
                                       state_no_spaces,
                                       ".csv"))
+  return(state_subset)
 }

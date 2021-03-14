@@ -25,7 +25,7 @@ for (state_to_subset in pick_any_state_vector) {
   print(paste("The state you chose is", state_to_subset))
 
   state_to_subset <- subset_mobility_data_to_state(
-    input_file_name = "data/raw_data/applemobilitytrends-2021-03-06.csv",
+    input_file_name = "data/raw_data/applemobilitytrends-2021-03-11.csv",
     state_to_subset = x)
 
   print(paste(x, "data is subsetting"))

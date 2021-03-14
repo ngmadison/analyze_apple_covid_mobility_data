@@ -9,7 +9,7 @@
 # load function
 source("code/functions/city_county_transport_tally.R")
 
-tally_chosen_state <- c("New York",
+tally_chosen_state <- c("Hawaii",
                         "Virginia",
                         "Wisconsin",
                         "Maine",
@@ -32,7 +32,7 @@ for (state_to_tally in tally_chosen_state) {
   # remember to change input file date as needed
   tally_chosen_state <- city_county_transport_tally(
   input_file_name = paste0("output/subset_states_wide/",
-                           "applemobilitytrends-2021-03-06_",
+                           "applemobilitytrends-2021-03-11_",
                           state_no_spaces,
                           ".csv"),
   state_to_tally = chosen_state)

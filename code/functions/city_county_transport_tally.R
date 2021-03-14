@@ -14,16 +14,16 @@ library("dplyr")
 city_county_transport_tally <- function(input_file_name,
                                         state_to_tally) {
   # read in subsetted csv
-  state_data <- readr::read_csv(input_file_name)
+  state_subset <- readr::read_csv(input_file_name)
 
   # defensive code to ensure data present before generating count table
-  if (nrow(state_data) == 0) {
+  if (nrow(state_subset) == 0) {
     stop("WARNING: No rows in data table. Is this the right input file?")
   }
 
   # refine data with dplyr to only include columns for geo_type, region, and
   # transportation_type
-  count_cities_counties_by_type <- state_data %>%
+  count_cities_counties_by_type <- state_subset %>%
     select(geo_type, region, transportation_type) %>%
     group_by(geo_type, transportation_type) %>%
     tally()
@@ -43,4 +43,6 @@ city_county_transport_tally <- function(input_file_name,
                           "_",
                           "transport_tally",
                           ".csv"))
+
+  return(count_cities_counties_by_type)
 }

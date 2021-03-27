@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
 ```
 
 ## Setup
@@ -19,10 +19,10 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 global_file_to_process <- "data/raw_data/applemobilitytrends-2021-03-11.csv"
 
 # set state to work with
-state_to_analyze <- "Wisconsin"
+state_to_analyze <- "New Jersey"
 
 # set city to work with
-city_to_analyze <- "Madison"
+city_to_analyze <- "Atlantic"
 
 # clean up state name for output files
 state_no_spaces <- gsub(state_to_analyze,
@@ -146,7 +146,20 @@ timeseries_plot
 ```{r plot-time-series-city-transport}
 # generate time series plot tracking relative mobility across transport types
 # for a city
-city_transport_plot <- long_subset %>%
+
+# confirm city name chosen is in data set
+city_subset_confirm <- long_subset %>%
+  filter(region == city_to_analyze)
+
+if (nrow(city_subset_confirm) == 0) {
+  print(paste0(city_to_analyze, ",", state_to_analyze))
+  stop("ERROR: City not found. Confirm city name is in data set.")
+}
+
+if (nrow(city_subset_confirm) == 0) {
+  stop("ERROR: Graph is empty. Figure will not be saved. Check city name.")
+} else {
+    city_transport_plot <- city_subset_confirm %>%
   filter(region == city_to_analyze) %>%
   group_by(date) %>%
   ggplot(aes(x = lubridate::ymd(date),
@@ -167,6 +180,7 @@ ggsave(plot = city_transport_plot,
                          "_",
                          state_no_spaces,
                          "_transport_relative_plot.png"))
+  }
 
 city_transport_plot
 ```

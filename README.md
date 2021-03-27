@@ -11,6 +11,7 @@ https://covid19.apple.com/mobility
 Currently uses dplyr to work with some of the tabular data and ggplot2 to visualize data set.
 
 ### Change Log
+* 2021-03-26: Added safety check to address issue of ggplot failing silently in Rmd.
 * 2021-03-13: Resolved plotting errors in in analysis.Rmd and generated test figures.
 * 2021-03-13: Added return statements to functions, corrected carryover errors from switching between read.csv and read_csv.
 * 2021-03-12: Continue function and associated script dplyr and/or readr modifications. Object naming and state name style for file naming also updated.

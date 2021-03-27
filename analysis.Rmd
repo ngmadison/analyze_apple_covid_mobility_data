@@ -156,6 +156,7 @@ if (nrow(city_subset_confirm) == 0) {
   stop("ERROR: City not found. Confirm city name is in data set.")
 }
 
+# make sure graph doesn't save from running this chunk if city is incorrect
 if (nrow(city_subset_confirm) == 0) {
   stop("ERROR: Graph is empty. Figure will not be saved. Check city name.")
 } else {

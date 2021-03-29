@@ -14,8 +14,8 @@ if [ $# -eq 0 ]
 then
   echo "Supply three arguments to run this script:"
   echo "First, pick a US state to analyze."
-  echo "Second select a city in that state.Reference data for correct names."
-  echo "Finally include the path to the mobility data csv."
+  echo "Second, select a city in that state. Reference data for correct names."
+  echo "Finally, include the path to the mobility data csv."
   exit 1
 fi
 
@@ -29,5 +29,5 @@ Rscript -e "rmarkdown::render('Analysis.Rmd',\
             params = list(state = '$1',\
             city = '$2',\
             data = '$3'),\
-            output_dir = 'output',\
-            output_file = 'Analysis_$state'_'$city')"
+            output_dir = 'output/analysis_from_covid_pipeline',\
+            output_file = 'Analysis_${state}_${city}')"

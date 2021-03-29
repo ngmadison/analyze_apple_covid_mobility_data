@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
 
 ```{r set-parameters}
 # set name of global data file used
-global_file_to_process <- "data/raw_data/applemobilitytrends-2021-03-11.csv"
+global_file_to_process <- params$data
 
 # set state to work with
 state_to_analyze <- params$state

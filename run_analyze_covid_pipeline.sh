@@ -4,7 +4,7 @@
 
 # This script expects three command line parameters
 # The first should be a US state, the second a city in that state, and third
-# the raw Apple covid mobility data csv file downloaded from apple.com
+# the raw Apple Covid mobility data csv downloaded from apple.com
 
 # Madison Ng
 # mtng2@dons.usfca.edu

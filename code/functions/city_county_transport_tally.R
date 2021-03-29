@@ -28,13 +28,6 @@ city_county_transport_tally <- function(input_file_name,
     group_by(geo_type, transportation_type) %>%
     tally()
 
-  # defensive code to ensure data present before generating csv
-  if (nrow(count_cities_counties_by_type) == is.logical(NA))  {
-    print(count_cities_counties_by_type)
-    stop("WARNING: Missing data in count table. Incorrect tallies may result.
-         CSV will not be generated.")
-  }
-
   # write new csv of tally results and save to output directory
   readr::write_csv(count_cities_counties_by_type,
             file = paste0("output/",

@@ -6,6 +6,7 @@ output: html_document
 bibliography: references.bib
 params:
   state: "Wisconsin"
+  city: "Madison"
   data: "data/raw_data/applemobilitytrends-2021-03-11.csv"
 ---
 
@@ -17,13 +18,13 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, error = FALSE)
 
 ```{r set-parameters}
 # set name of global data file used
-global_file_to_process <- params$data
+global_file_to_process <- "data/raw_data/applemobilitytrends-2021-03-11.csv"
 
 # set state to work with
 state_to_analyze <- params$state
 
 # set city to work with
-city_to_analyze <- "Madison"
+city_to_analyze <- params$city
 
 # clean up state name for output files
 state_no_spaces <- gsub(state_to_analyze,

@@ -18,9 +18,8 @@ then
 	exit 1
 fi
 
-data=$1
-data=${data// /_}
-
 # Intial peek at fasta file with zcat to see what variables are available to work with
-zcat /blast-db/sars-cov-2-seq-data/"$1" | head
+zcat /blast-db/sars-cov-2-seq-data/2021-04-05_ncbi_sars_cov_2_sequences.fasta.gz | head
 
+# Selecting parameter to filter data by with zgrep
+zgrep

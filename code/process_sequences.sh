@@ -22,5 +22,7 @@ fi
 # Intial peek at fasta with zcat to see what variables are available to work with
 zcat "$1" | head
 
-# Selecting parameter to filter data using zgrep
-echo zgrep "[A-Z].*coronavirus" "$1" | less | awk '$1 ~ /"[A-Z].*.[0-9]"/ {print NR}' "$1"
+# Use zgrep to filter seqeunce name
+zgrep -c "[A-Z].*.[0-9]" "$1"
+
+

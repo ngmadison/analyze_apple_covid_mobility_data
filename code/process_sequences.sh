@@ -18,3 +18,9 @@ then
 	exit 1
 fi
 
+data=$1
+data=${data// /_}
+
+# Intial peek at fasta file with zcat to see what variables are available to work with
+zcat /blast-db/sars-cov-2-seq-data/"$1" | head
+

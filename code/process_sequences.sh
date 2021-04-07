@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# Bash script to analyze sequences in compressed Sars Cov 2 fasta file from NCBI Blast.
+# Bash script to analyze sequences in 
+# compressed Sars Cov 2 fasta file from 
+# NCBI Blast. The goal is to find the 
+# total number of sequences. We also 
+# want to tally the number of sequences 
+# per country and sort them by largest 
+# to smallest count.
 
 # This script is expected to have one 
 # command line parameter. This is the 
@@ -22,4 +28,5 @@ fi
 zcat /blast-db/sars-cov-2-seq-data/2021-04-05_ncbi_sars_cov_2_sequences.fasta.gz | head
 
 # Selecting parameter to filter data by with zgrep
-zgrep
+# zgrep "$name" /blast-db/sars-cov-2-seq-data/2021-04-05_ncbi_sars_cov_2_sequences.fasta.gz
+

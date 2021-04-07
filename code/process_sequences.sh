@@ -22,7 +22,14 @@ fi
 # Intial peek at fasta with zcat to see what variables are available to work with
 zcat "$1" | head
 
-# Use zgrep to filter seqeunce name
-zgrep -c "[A-Z].*.[0-9]" "$1"
+# Use zgrep to filter and count sequence names
+echo "Zegrep will filter data for all sequences."
+zgrep "[A-Z].*.[0-9]" "$1" | less
+echo "Zegrep presented you with filtered data for all the sequences it found."
+echo "Zegrep will now count all sequences."
+x="$(zgrep -c "[A-Z].*.[0-9]" "$1")"
+echo "$x sequences were counted."
+
+
 
 

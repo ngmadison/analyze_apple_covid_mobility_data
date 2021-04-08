@@ -25,13 +25,15 @@ zcat "$1" | head
 # Use zgrep to filter and count sequence names.
 # Use awk to isolate sequence names and compile them.
 # Outputs placed in txt file for future use.
-
 echo "Zgrep will filter data for all sequences. Awk will isolate sequence names."
 zgrep "[A-Z].*.[0-9] " "$1" | awk '{print $1}' > list_counted_seqs.txt
 echo "Find isolated sequence names in output/list_counted_seqs.txt."
-echo "Zgrep will now count those sequences."
+echo "Zgrep will now count those sequences and the output will be added to the output txt file."
 x="$(zgrep -c "[A-Z].*.[0-9]" "$1")"
-echo "$x sequences were counted."
+echo "$x sequences were counted." >> list_counted_seqs.txt
+
+
+
 
 
 

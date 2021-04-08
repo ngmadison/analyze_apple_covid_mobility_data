@@ -30,5 +30,5 @@ mv total_seqs.txt /home/Ng_Madison/analyze_apple_covid_mobility_data/output/
 echo "The total number of sequences is:"
 cat /home/Ng_Madison/analyze_apple_covid_mobility_data/output/total_seqs.txt
 
-#Tally SARS-CoV-2 sequences and sorty by country
-#zgrep "[A-Z].*.[0-9] " "$1" | awk '{print $1,$5}' "$1"
+#Tally SARS-CoV-2 sequences and sort by country
+zgrep -c "[A-Z].*Homo" "$1" | cut -f5 "$1" | uniq -c "$1" | \sort -rn

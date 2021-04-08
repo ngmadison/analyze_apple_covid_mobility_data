@@ -19,7 +19,7 @@ then
 	exit 1
 fi
 
-# Use zcat to isolate identifier line to assess variables available for use in fucntions
+# Use zcat to isolate identifier line to assess variables available for use in functions
 zcat "$1" | head -n1
 
 # Use bioawk to locate and count total sequences, then store count output in txt file
@@ -27,8 +27,9 @@ echo "Bioawk will isolate sequence names, count the total, and place count in an
 bioawk -c fastx 'END{print NR}' "$1" > total_seqs.txt
 mv total_seqs.txt /home/Ng_Madison/analyze_apple_covid_mobility_data/output/
 # Display output saved to txt file in terminal
-echo "The total number of sequences is:"
+echo "The total number of sequences is"
 cat /home/Ng_Madison/analyze_apple_covid_mobility_data/output/total_seqs.txt
 
 #Tally SARS-CoV-2 sequences and sort by country
-zgrep -c "[A-Z].*Homo" "$1" | cut -f5 "$1" | uniq -c "$1" | \sort -rn
+zgrep "[A-Z].*coronavirus" "$1" | awk '{print $5}' | uniq -c | \sort -rn > tally_attempt.txt
+

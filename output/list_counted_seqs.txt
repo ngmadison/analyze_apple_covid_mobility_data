@@ -136071,3 +136071,4 @@
 >MN970003.1
 >MN970004.1
 >MN908947.3
+136073 sequences were counted.

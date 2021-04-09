@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eou pipefail
+
 # Bash script to analyze sequences in compressed SARS-CoV-2 fasta file from  NCBI Blast.
 # The goal is to find the total number of sequences.
 # We also want to tally the number of sequences per country
@@ -31,5 +33,5 @@ echo "The total number of sequences is"
 cat /home/Ng_Madison/analyze_apple_covid_mobility_data/output/total_seqs.txt
 
 #Tally SARS-CoV-2 sequences and sort by country
-zgrep "[A-Z].*coronavirus" "$1" | awk '{print $5}' | uniq -c | \sort -rn > tally_attempt.txt
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | uniq -c | \sort -rn > tally_attempt.txt
 

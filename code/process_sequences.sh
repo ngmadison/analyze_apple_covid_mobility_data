@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -eou pipefail
-
 # Bash script to analyze sequences in compressed SARS-CoV-2 fasta file from  NCBI Blast.
 # The goal is to find the total number of sequences.
 # We also want to tally the number of sequences per country
@@ -21,17 +19,25 @@ then
 	exit 1
 fi
 
-# Use zcat to isolate identifier line to assess variables available for use in functions
-zcat "$1" | head -n1
+# Count total sequences in compressed fasta
 
 # Use bioawk to locate and count total sequences, then store count output in txt file
-echo "Bioawk will isolate sequence names, count the total, and place count in an output txt file."
-bioawk -c fastx 'END{print NR}' "$1" > total_seqs.txt
-mv total_seqs.txt /home/Ng_Madison/analyze_apple_covid_mobility_data/output/
-# Display output saved to txt file in terminal
-echo "The total number of sequences is"
-cat /home/Ng_Madison/analyze_apple_covid_mobility_data/output/total_seqs.txt
+echo "Bioawk will isolate sequence names, total them, and place count in an output txt file."
+bioawk -c fastx 'END{print NR}' "$1" > ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
 
-#Tally SARS-CoV-2 sequences and sort by country
-zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | uniq -c | \sort -rn > tally_attempt.txt
+# Display output total in terminal for user
+echo "The total number of sequences is:"
+cat ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
 
+# Tally SARS-CoV-2 sequences and sort by country
+
+# Use zcat to isolate indentifier line and determine available variables and
+# assess data make up for function creation
+zcat "$1" | head -n1
+
+# Use zgrep, cut, and sort to tally and sort sequences
+echo "Zgrep, cut, and sort will isolate, tally, and order sequences by country from greatest to least in a txt output file."
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
+
+# Identify output file for user
+echo "Output file generation complete. Look for total_tally_sort_country_seqs.txt in output directory."

@@ -18,7 +18,7 @@ then
   echo "Second, select a city in that state. Reference data for available names."
   echo "Third, include the path to the mobility data csv."
   echo "Finally, include the path to the sequence data summary txt file."
-  echo "Trouble? Try putting city/state names with spaces in double quotes."
+  echo "Trouble? Try putting city/state names in double quotes."
   exit 1
 fi
 
@@ -31,4 +31,4 @@ city=${city// /_}
 RMD_PARAMS="params = list(state = '$1', city = '$2', data = '$3', seqdata = '$4')"
 RMD_OUTPUT="output_dir = 'output', output_file = 'Analysis_${state}_${city}'"
 
-Rscript -e "rmarkdown::render('Analysis.Rmd', $RMD_PARAMS, $RMD_OUTPUT)"
+Rscript -e "rmarkdown::render('analysis.Rmd', $RMD_PARAMS, $RMD_OUTPUT)"

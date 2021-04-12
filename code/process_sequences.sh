@@ -23,11 +23,11 @@ fi
 
 # Use bioawk to locate and count total sequences, then store count output in txt file
 echo "Bioawk will isolate sequence names, total them, and place count in an output txt file."
-bioawk -c fastx 'END{print NR}' "$1" > ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
+bioawk -c fastx 'END{print NR}' "$1" > ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
 
 # Display output total in terminal for user
 echo "The total number of sequences is:"
-cat ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
+cat ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
 
 # Tally SARS-CoV-2 sequences and sort by country
 
@@ -37,7 +37,7 @@ zcat "$1" | head -n1
 
 # Use zgrep, cut, and sort to tally and sort sequences
 echo "Zgrep, cut, and sort will isolate, tally, and order sequences by country from greatest to least in a txt output file."
-zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
 
 # Identify output file for user
-echo "Output file generation complete. Look for total_tally_sort_country_seqs.txt in output directory."
+echo "Output file generation complete. Look for sort_country_seqs.txt in output directory."

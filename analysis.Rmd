@@ -191,7 +191,7 @@ city_transport_plot
 
 ```{r plot-country-sequence-data, fig.height=12}
 # read in count of sequence by coutnry (there are 2 columns)
-seqs_by_country < readr::read_table(params$seqdata,
+seqs_by_country <- readr::read_table(params$seqdata,
                                     col_names = c("count",
                                                   "country"))
 

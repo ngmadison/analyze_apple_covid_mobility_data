@@ -25,3 +25,5 @@ clean:
 	rm -fv output/*seqs.txt
 	rm -fv output/*/*.csv
 	rm -fv output/*/*.png
+
+.PHONY: all clean

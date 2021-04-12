@@ -190,19 +190,19 @@ city_transport_plot
 ```
 
 ```{r plot-country-sequence-data, fig.height=12}
-# read in count of sequence by coutnry (there are 2 columns)
-seqs_by_country <- readr::read_table(params$seqdata,
-                                    col_names = c("count",
-                                                  "country"))
+# read in count of sequence by country (there are 2 columns)
+country_seqs <- readr::read_table(params$seqdata,
+                                  col_names = c("count",
+                                                "country"))
 
 # confirm column count is correct
-stopifnot(ncol(seqs_by_country) == 2)
+stopifnot(ncol(country_seqs) == 2)
 
 # create sideways barplot using a log scale x axis, where countries are on the y
 # and the sequence counts for each are on the x and sorted by count
-country_seq_count_plot <- ggplot(data = seqs_by_country,
-                         aes(x = count,
-                             y = reorder(country, count))) +
+country_seq_count_plot <- ggplot(data = country_seqs,
+                                 aes(x = count,
+                                     y = reorder(country, count))) +
   geom_col() +
   scale_x_log10() +
   labs(title = "SARS-CoV-2 sequence counts by country",

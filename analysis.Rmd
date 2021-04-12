@@ -8,7 +8,7 @@ params:
   state: "Wisconsin"
   city: "Madison"
   data: "data/raw_data/applemobilitytrends-2021-03-11.csv"
-  seqdata: "output/total_tally_sort_seqs.txt"
+  seqdata: "output/sort_country_seqs.txt"
 ---
 
 ```{r setup, include=FALSE}

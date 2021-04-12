@@ -30,7 +30,7 @@ zcat "$1" | head -n1
 
 # Use zgrep, cut, and sort to tally and sort sequences
 echo "Zgrep, cut, and sort will isolate, tally, and order sequences by country from greatest to least in a txt file."
-zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/total_tally_sort_seqs.txt
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
 
 # Identify output file for user
-echo "Output file generation complete. Look for total_tally_sort_country_seqs.txt in output directory."
+echo "Output file generation complete. Look for sort_country_seqs.txt in output directory."

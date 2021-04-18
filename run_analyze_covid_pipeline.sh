@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Bash script for rendering Rmarkdown file using parameters passed in from shell
 
 # This script expects four command line parameters
@@ -32,3 +34,4 @@ RMD_PARAMS="params = list(state = '$1', city = '$2', data = '$3', seqdata = '$4'
 RMD_OUTPUT="output_dir = 'output', output_file = 'Analysis_${state}_${city}'"
 
 Rscript -e "rmarkdown::render('analysis.Rmd', $RMD_PARAMS, $RMD_OUTPUT)"
+

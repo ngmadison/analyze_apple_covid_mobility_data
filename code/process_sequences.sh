@@ -25,9 +25,7 @@ fi
 # Tally SARS-CoV-2 sequences and sort by country
 if [ $# -ne 2 ]
 then
-    echo "Tally SARS-CoV-2 sequences and sort countries from greatest to least"
     zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn > ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
-    echo "Output file generation complete. Look for sort_country_seqs.txt in output directory."
     cat ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
     exit 1
 fi

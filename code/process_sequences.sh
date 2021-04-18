@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bashqcl
 
 # Bash script to analyze sequences in compressed SARS-CoV-2 fasta file from  NCBI Blast.
 # The goal is to find the total number of sequences.
@@ -29,15 +29,14 @@ if [ $# -ne 2 ]
 then
     echo "Tally SARS-CoV-2 sequences and sort countries from greatest to least"
     zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn > ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
-    cat ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
     echo "Output file generation complete. Look for sort_country_seqs.txt in output directory."
+    cat ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt
     exit 1
 fi
 
 # Complete output from original script
-ALL=$(echo "The total number of sequences is:";
-      bioawk -c fastx 'END{print NR}' "$1" > ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt;
-      echo "Tally SARS-CoV-2 sequences and sort countries by greatest to least";
+ALL=$(echo "The total number of sequences is:" `bioawk -c fastx 'END{print NR}' "$1"` > ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt;
+      echo "Tally SARS-CoV-2 sequences and sort countries by greatest to least" >> ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt;
       zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn >> ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt)
 
 cat ~/analyze_apple_covid_mobility_data/output/sort_country_seqs.txt

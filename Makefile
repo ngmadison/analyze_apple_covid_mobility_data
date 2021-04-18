@@ -20,8 +20,8 @@ $(SEQ_SUMMARY): code/process_sequences.sh $(SEQ_DATA)
 	bash code/process_sequences.sh "$(SEQ_DATA)" > "$(SEQ_SUMMARY)"
 
 clean:
+        rm -fv analysis.html
 	rm -fv output/*.html
-	rm -fv analysis.html
 	rm -fv output/*seqs.txt
 	rm -fv output/*/*.csv
 	rm -fv output/*/*.png

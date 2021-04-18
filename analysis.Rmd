@@ -205,7 +205,7 @@ country_seq_count_plot <- ggplot(data = country_seqs,
                                      y = reorder(country, count))) +
   geom_col() +
   scale_x_log10() +
-  labs(title = "SARS-CoV-2 sequence counts by country",
+  labs(title = "SARS-CoV-2 Sequence Counts by Country",
        x = "Sequence Counts",
        y = "Country Name")
 

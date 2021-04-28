@@ -25,11 +25,9 @@ fi
 # Tally SARS-CoV-2 sequences and sort by country
 # Check if total seq count is requested
 if [ "$2" = 'ALL' ]
-  then
+then
     echo "The total number of sequences is:" "$(bioawk -c fastx 'END{print NR}' "$1" )"
 fi
 
 # Output sequences by country tally
-echo "Tally SARS-CoV-2 sequences and sort countries by greatest to least"
-zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | \sort -rn > output/sort_country_seqs.txt
-cat output/sort_country_seqs.txt
+zgrep "isolate.*Homo" "$1" | cut -d"|" -f5 | sort | uniq -c | sort -rn

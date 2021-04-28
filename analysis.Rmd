@@ -108,7 +108,7 @@ tallied_plot <- ggplot(data = tallied_subset,
        y = "Location count")
 
 ggsave(plot = tallied_plot,
-       filename = paste0("output/figures/",
+       filename = paste0("output/analysis_figures/",
                          core_name,
                          "_",
                          state_no_spaces,
@@ -134,7 +134,7 @@ geom_line() +
        y = "Mean realtive mobility")
 
 ggsave(plot = timeseries_plot,
-       filename = paste0("output/figures/",
+       filename = paste0("output/analysis_figures/",
                          core_name,
                          "_",
                          state_no_spaces,
@@ -174,7 +174,7 @@ geom_line() +
        y = "Realtive mobility")
 
 ggsave(plot = city_transport_plot,
-       filename = paste0("output/figures/",
+       filename = paste0("output/analysis_figures/",
                          core_name,
                          "_",
                          city_no_spaces,

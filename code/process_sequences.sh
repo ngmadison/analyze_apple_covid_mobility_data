@@ -16,10 +16,10 @@
 # Quick check to ensure there are command line arguments present before script progresses
 if [ $# -eq 0 ]
 then
-	echo "There are two arugments necessary to make this script run:"
-	echo "First, please include the path to the compressed sequence data fasta."
-	echo "Next, include 'ALL' if you would like more detailed output."
-	exit 1
+        echo "There are two arugments necessary to make this script run:"
+        echo "First, please include the path to the compressed sequence data fasta."
+        echo "Next, include 'ALL' if you would like more detailed output."
+        exit 1
 fi
 
 # Tally SARS-CoV-2 sequences and sort by country
